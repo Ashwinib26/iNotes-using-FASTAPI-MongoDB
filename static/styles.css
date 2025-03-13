@@ -1,73 +1,73 @@
-/* General Styles */
+/* General Styling */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f7fa;
-}
-
-/* Navbar */
-.navbar {
-    padding: 12px;
-    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
 }
 
 /* Hero Section */
 .hero {
     background: linear-gradient(to right, #007bff, #6610f2);
-    padding: 70px 0;
-    text-align: center;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-}
-
-/* Form Section */
-.card {
-    border-radius: 12px;
-}
-
-/* Save Note Button */
-.btn-save {
-    background: linear-gradient(to right, #ff7eb3, #ff758c);
+    padding: 60px 0;
     color: white;
+}
+
+/* Form Styling */
+.card {
+    border-radius: 15px;
     border: none;
-    padding: 12px 15px;
-    font-size: 18px;
+    background: #ffffff;
+}
+
+.card h3 {
     font-weight: bold;
+}
+
+.form-control {
     border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    display: block;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(255, 117, 140, 0.3);
+    font-size: 1rem;
 }
 
-.btn-save:hover {
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(255, 117, 140, 0.5);
+.btn-success {
+    background: linear-gradient(to right, #28a745, #218838);
+    border: none;
+    font-size: 1.2rem;
 }
 
-/* Notes Display Section */
-.note-card {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    transition: all 0.3s ease-in-out;
-    border-left: 5px solid #007bff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.btn-success:hover {
+    background: linear-gradient(to right, #218838, #1e7e34);
 }
 
-.note-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+/* Previous Notes Table */
+.table {
+    font-size: 1rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .note-container {
-        flex-direction: column;
-        align-items: center;
-    }
+.table th {
+    background-color: #343a40 !important;
+    color: white;
+}
 
-    .note-card {
-        width: 100%;
-    }
+.table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+}
+
+/* Navbar */
+.navbar {
+    font-size: 1.1rem;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
 }

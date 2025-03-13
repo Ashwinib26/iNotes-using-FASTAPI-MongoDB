@@ -10,11 +10,10 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">📝 iNotes</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -23,10 +22,7 @@
                         <a class="nav-link active" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#" onclick="showPreviousNotes()">Previous Notes</a>
                     </li>
                 </ul>
             </div>
@@ -46,39 +42,45 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8">
                 <div class="card shadow-lg p-4">
-                    <h3 class="text-center mb-3">🖊️ Add a New Note</h3>
+                    <h3 class="text-center mb-3 text-primary">🖊️ Add a New Note</h3>
                     <form action="/" method="post">
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+                            <input type="text" class="form-control form-control-lg" id="title" name="title" placeholder="Enter title">
                         </div>
                         <div class="mb-3">
                             <label for="desc" class="form-label">Note</label>
-                            <textarea class="form-control" id="desc" name="desc" rows="3"
+                            <textarea class="form-control form-control-lg" id="desc" name="desc" rows="3"
                                 placeholder="Write your note here..."></textarea>
                         </div>
-                        <button type="submit" class="btn-save w-100">Save Note</button>
+                        <button type="submit" class="btn btn-success btn-lg w-100">📌 Save Note</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Display Notes Section -->
-    <div class="container mt-5">
-        <h2 class="text-center">📌 Your Notes</h2>
+    <!-- Display Previous Notes Section -->
+    <div id="previous-notes" class="container mt-5" style="display: none;">
+        <h2 class="text-center text-primary mb-3">📌 Your Previous Notes</h2>
         {% if newDocs %}
-            <div class="row mt-4">
-                {% for item in newDocs %}
-                <div class="col-md-4">
-                    <div class="card note-card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ item.title }}</h5>
-                            <p class="card-text">{{ item.desc }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Title</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in newDocs %}
+                        <tr>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.desc }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         {% else %}
             <p class="text-center text-muted">No notes found. Start writing your first note!</p>
@@ -87,5 +89,10 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showPreviousNotes() {
+            document.getElementById('previous-notes').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
